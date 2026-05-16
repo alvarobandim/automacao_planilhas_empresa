@@ -1,2 +1,10 @@
-# Ignorar arquivos de dados gerados localmente
-relatorio_consolidado.xlsx
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Arquivos de ambiente e credenciais
+.env
+
+# (Opcional) Ignorar planilhas se contiverem dados reais da empresa
+# *.xlsx
+# *.csv
