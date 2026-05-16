@@ -20,7 +20,7 @@ O projeto soluciona o gargalo de consolidação manual de dados corporativos atr
 
 1. Realize o clone do repositório:
 ```bash
-git clone [https://github.com/seu_usuario/nome_do_seu_repositorio.git](https://github.com/seu_usuario/nome_do_seu_repositorio.git)
+git clone https://github.com/alvarobandim/automacao_planilhas_empresa.git
 ```
 
 2. Instale a engine de processamento de dados:
@@ -29,9 +29,9 @@ pip install pandas openpyxl
 ```
 
 3. Configure as credenciais de disparo:
-No arquivo de script principal, insira o seu e-mail de remetente e a Senha de Aplicativo gerada pelo provedor (ex: Google App Passwords).
+No arquivo `app.py`, localize as variáveis de configuração SMTP e insira as suas credenciais de acesso (e-mail corporativo/pessoal e a Senha de Aplicativo gerada pelo provedor).
 
 4. Execute o pipeline:
 ```bash
-python automacao_relatorio.py
+python app.py
 ```
