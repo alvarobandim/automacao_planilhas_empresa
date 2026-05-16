@@ -1,23 +1,37 @@
-# Automação de Consolidação de Planilhas e Disparo SMTP (ETL)
+# Automação de Back-office - Pipeline ETL e Reporte via E-mail
 
-## Descrição
-Script desenvolvido em Python para automação de ponta a ponta de rotinas de back-office. O sistema atua como um pipeline de dados que realiza a ingestão de múltiplos relatórios descentralizados, processa as métricas de negócio e, de forma autônoma, despacha o documento consolidado para a diretoria utilizando o protocolo de rede SMTP.
+Sistema de automação desenvolvido em Python para otimizar rotinas de Back-office e Controladoria. O script atua como um agente de integração que realiza a leitura de múltiplas fontes de dados (planilhas de filiais), aplica lógicas de consolidação e despacha um relatório executivo automatizado via protocolo SMTP.
 
-## Arquitetura e Fluxo de Dados
-O pipeline foi estruturado nas seguintes etapas:
-- **Extract (Extração):** Varredura automatizada do diretório de origem para mapeamento dos arquivos `.xlsx`.
-- **Transform (Transformação):** Agregação de dados e cálculo de volumetria utilizando a biblioteca Pandas.
-- **Load (Carregamento):** Geração de um novo arquivo executivo padronizado.
-- **Delivery (Distribuição):** Montagem de envelope digital (MIME) com anexo binário e disparo autenticado de e-mail via servidor SMTP corporativo.
+## Arquitetura da Automação
 
-## Pré-requisitos
-- Python 3.x
-- Pandas
-- OpenPyXL
-- Bibliotecas nativas: `os`, `smtplib`, `email.mime`
+O projeto soluciona o gargalo de consolidação manual de dados corporativos através do seguinte fluxo:
 
-## Configuração do Ambiente e Segurança
-1. Clone o repositório em sua máquina local.
-2. Instale as dependências via terminal:
-   ```bash
-   pip install pandas openpyxl
+1. Extraction (Extração): Leitura programática de arquivos de dados estruturados em disco (extensões `.xlsx` ou `.csv`).
+2. Transformation (Transformação): Uso da engine de manipulação de dados para limpeza, agrupamento e sumarização das métricas das filiais em um único dataset consolidado.
+3. Loading & Delivery (Carga e Entrega): Formatação dos dados processados em um corpo de e-mail em HTML e roteamento automatizado para os stakeholders utilizando integração nativa com servidores SMTP.
+
+## Stack Tecnológica
+
+- Linguagem: Python 3
+- Data Manipulation: Pandas e Openpyxl (Processamento e I/O de planilhas)
+- Networking / Mensageria: `smtplib` e `email.mime` (Protocolos de envio de e-mail seguro com TLS/SSL)
+
+## Instruções de Execução Local
+
+1. Realize o clone do repositório:
+```bash
+git clone [https://github.com/seu_usuario/nome_do_seu_repositorio.git](https://github.com/seu_usuario/nome_do_seu_repositorio.git)
+```
+
+2. Instale a engine de processamento de dados:
+```bash
+pip install pandas openpyxl
+```
+
+3. Configure as credenciais de disparo:
+No arquivo de script principal, insira o seu e-mail de remetente e a Senha de Aplicativo gerada pelo provedor (ex: Google App Passwords).
+
+4. Execute o pipeline:
+```bash
+python automacao_relatorio.py
+```
